@@ -1,0 +1,3 @@
+aiogram
+config_reader
+pydantic_settings
