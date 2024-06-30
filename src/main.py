@@ -19,8 +19,8 @@ router = Router()
 async def set_commands(bot: Bot):
     commands = [
         BotCommand(command="/start", description="Запустить бота"),
-        BotCommand(command="/bju_product", description="Рассчитать БЖУ продукта"),
-        BotCommand(command="/bju_meal", description="Рассчитать БЖУ приёма пищи"),
+        BotCommand(command="/bju_product", description="Рассчитать КБЖУ продукта"),
+        BotCommand(command="/bju_meal", description="Рассчитать КБЖУ приёма пищи"),
     ]
     await bot.set_my_commands(commands)
 

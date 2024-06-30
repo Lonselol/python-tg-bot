@@ -1,3 +1,6 @@
+import sqlite3
+import os
+
 PRODUCT_DATA = {
     'творог': {'calories': 98, 'proteins': 18, 'fats': 1, 'carbs': 3},
     'яблоко': {'calories': 52, 'proteins': 0.3, 'fats': 0.2, 'carbs': 14},
@@ -5,7 +8,28 @@ PRODUCT_DATA = {
 }
 
 def get_product_info(product_name):
-    return PRODUCT_DATA.get(product_name.lower())
+    print("supbitch")
+    connection = sqlite3.connect(os.path.abspath("txt/database.db"))
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM products WHERE name = ?", (product_name,))
+    product = cursor.fetchone()
+
+    cursor.close()
+    connection.close()
+
+    if product:
+        product_formatted = {
+            'name': product[1],
+            'calories': product[2],
+            'proteins': product[3],
+            'fats': product[4],
+            'carbs': product[5]
+        }
+        print (product_formatted)
+        return product_formatted
+    else:
+        return None
 
 def calculate_meal_bju(meal_description):
     meal_items = meal_description.split(',')

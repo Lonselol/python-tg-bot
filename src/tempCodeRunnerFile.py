@@ -1,0 +1,1 @@
+os.path.abspath("txt/config.ini")
