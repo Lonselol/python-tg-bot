@@ -1,12 +1,6 @@
 import sqlite3
 import os
 
-PRODUCT_DATA = {
-    'творог': {'calories': 98, 'proteins': 18, 'fats': 1, 'carbs': 3},
-    'яблоко': {'calories': 52, 'proteins': 0.3, 'fats': 0.2, 'carbs': 14},
-    # Добавьте другие продукты по необходимости
-}
-
 def get_product_info(product_name):
     print("supbitch")
     connection = sqlite3.connect(os.path.abspath("txt/database.db"))
